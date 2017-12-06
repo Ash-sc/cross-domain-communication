@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://ashshen.cc/wp-content/uploads/2017/03/app-icon180180.png">
+  <title>Parenet page(postMessage)</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+      color: #303030;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .title {
+      font-weight: normal;
+    }
+    #iframe {
+      border: 1px solid #eee;
+      display: block;
+      width: 100%;
+      height: 300px;
+      border-radius: 5px;
+    }
+    .main {
+      width: 1000px;
+      display: inline-block;
+      text-align: left;
+      min-height: 100vh;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+    .botton {
+      padding: 4px 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div class="main">
+    <br>
+    <h3 class="title"></h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <span>子页面iframe:</span>
+    <br>
+    <br>
+    <iframe src="http://eg2.example-1.com/4-postMessage/page2.html" id="iframe"></iframe>
+    <br>
+    <br>
+    <span class="msg-show"></span>
+  </div>
+</body>
+<script type="text/javascript">
+  window.onload = function() {
+    $('.title').text('父页面：' + window.location.href)
+
+    const messageDeal = (e) => {
+      e.data && $('.msg-show').text('你发送了指令：' + e.data)
+    }
+
+    window.addEventListener('message', messageDeal, false)
+
+  }
+</script>
+</html>

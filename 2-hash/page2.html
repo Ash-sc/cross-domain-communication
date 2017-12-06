@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://ashshen.cc/wp-content/uploads/2017/03/app-icon180180.png">
+  <title>Child page(hash)</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+      color: #303030;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .title {
+      font-weight: normal;
+    }
+    .main {
+      width: 1000px;
+      display: inline-block;
+      text-align: left;
+      min-height: 100vh;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+    .botton {
+      padding: 4px 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div class="main">
+    <br>
+    <h3 class="title"></h3>
+    <br>
+    <br>
+    <span class="msg"></span>
+  </div>
+</body>
+<script type="text/javascript">
+  window.onload = function() {
+    $('.title').text('子页面：' + window.location.href)
+
+    let oldHash = '' // 缓存
+
+    const checkMsg = () => {
+      const hash = window.location.hash.substring(1)
+
+      if (oldHash === hash) return false
+
+      sendMsg(JSON.parse(hash))
+
+      oldHash = hash
+    }
+
+    const sendMsg = (hashObj) => {
+      $('.msg').text('Child got msg: ' + hashObj.msg)
+
+      parent.location.href = hashObj.origin + '#{"msg":"Child has got msg"}'
+    }
+
+    setInterval(checkMsg, 100)
+
+  }
+</script>
+</html>

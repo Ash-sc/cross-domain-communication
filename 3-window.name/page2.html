@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://ashshen.cc/wp-content/uploads/2017/03/app-icon180180.png">
+  <title>Page B(window.name)</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+  window.onload = function() {
+    const searchObj = {}
+    window.location.search.substring(1).split('&').forEach(item => {
+      searchObj[item.split('=')[0]] = item.split('=')[1]
+    })
+
+    // 模拟请求返回
+    setTimeout(() => {
+      window.name = JSON.stringify({
+        id: searchObj.id,
+        data: [1, 2, 3, 4, 5]
+      })
+
+      window.location.href = searchObj.href
+    }, 1000)
+  }
+</script>
+</html>

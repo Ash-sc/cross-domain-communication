@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://ashshen.cc/wp-content/uploads/2017/03/app-icon180180.png">
+  <title>CROSS DOMAIN COMMUNICATION</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+      color: #303030;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .title {
+      font-weight: normal;
+      text-align: center;
+    }
+    .main {
+      width: 1000px;
+      display: inline-block;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: left;
+    }
+    .botton {
+      padding: 4px 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div class="main">
+    <br>
+    <h3 class="title">网页跨域通信方法</h3>
+    <br><br><br>
+    <span>方法一: document.domain</span>
+    <br><br><br>
+    <a href="/1-document.domain/page1.html" target="_blank">
+      <button class="botton">传送门</button>
+    </a>
+    <br><br><br><br><br><br>
+    <span>方法二: hash</span>
+    <br><br><br>
+    <a href="/2-hash/page1.html" target="_blank">
+      <button class="botton">传送门</button>
+    </a>
+    <br><br><br><br><br><br>
+    <span>方法三: window.name</span>
+    <br><br><br>
+    <a href="/3-window.name/page1.html" target="_blank">
+      <button class="botton">传送门</button>
+    </a>
+    <br><br><br><br><br><br>
+    <span>方法四: postMessage</span>
+    <br><br><br>
+    <a href="/4-postMessage/page1.html" target="_blank">
+      <button class="botton">传送门</button>
+    </a>
+  </div>
+</body>
+</html>
